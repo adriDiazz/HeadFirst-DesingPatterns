@@ -1,3 +1,5 @@
+import Observer.CurrentConditionsDisplay;
+import Observer.WeatherData;
 import Strategy.Duck;
 import Strategy.FlyingRocket;
 import Strategy.MallardDuck;
@@ -7,15 +9,22 @@ import Strategy.ModelDuck;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Duck duck = new MallardDuck();
+//        Duck duck = new MallardDuck();
+//
+//        duck.performFly();
+//        duck.performQuack();
+//
+//        Duck model = new ModelDuck();
+//
+//        model.performFly();
+//        model.setFlyBehavior(new FlyingRocket());
+//        model.performFly();
 
-        duck.performFly();
-        duck.performQuack();
+        WeatherData weatherData = new WeatherData();
 
-        Duck model = new ModelDuck();
+        CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
 
-        model.performFly();
-        model.setFlyBehavior(new FlyingRocket());
-        model.performFly();
+        weatherData.setMeasurements(80, 30, 2);
+        weatherData.setMeasurements(20, 50, 22);
     }
 }
